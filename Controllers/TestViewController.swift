@@ -17,7 +17,6 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
         scrollView.frame = view.bounds
-        //scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         scrollView.contentSize = CGSize(width: view.bounds.width, height: 1000)
         view.addSubview(scrollView)
 
@@ -155,11 +154,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//
-//
-//    }
+
 
 }
 
