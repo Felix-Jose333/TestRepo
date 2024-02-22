@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>//func col() {
+//    turnLeft()
+//    moveForward()
+//    turnLeft()    
+//    
+//}
+//
+//func sam() {
+//    turnRight()
+//    moveForward()
+//    turnRight()
+//    
+//}
+//
+//func test (){
+//    turnRight()
+//    moveForward()
+//    moveForward()
+//    turnLeft()
+//    moveForward()
+//    turnLeft()
+//    moveForward()
+//    moveForward()
+//    turnRight()
+//    moveForward()
+//}
+
+for i in 1...18{
+    moveForward()
+       if isOnClosedSwitch{
+           toggleSwitch()
+       }else if isOnGem{
+           collectGem()
+       }else if isBlockedLeft &amp;&amp; isBlocked{
+           turnRight()
+           moveForward()
+           turnRight()
+       }else if isBlocked{
+           turnLeft()
+           moveForward()
+           turnLeft()
+       }
+}
+
+//while !isBlocked{
+//    moveForward()
+//    if isOnClosedSwitch{
+//        toggleSwitch()
+//    }else if isOnGem{
+//        collectGem()
+//    }else if isBlockedLeft &amp;&amp; isBlocked{
+//        turnRight()
+//        moveForward()
+//        turnRight()
+//    }else if isBlocked{
+//        turnLeft()
+//        moveForward()
+//        turnLeft()
+//    }
+//    
+//}
+
+//while !isBlocked{
+//    test()
+//    if isOnClosedSwitch{
+//        toggleSwitch()        
+//    }else if isOnGem{
+//        collectGem()
+//        
+//    }
+//}
+
+//for i in 1...4{   
+//    test()
+//    if isOnClosedSwitch{
+//        toggleSwitch()
+//    }else if isOnGem{
+//        collectGem()
+//    }
+//}
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{942, 1416}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{942, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Document6.playgroundchapter/Pages/Challenge3.playgroundpage/main.swift</string>
+</dict>
+</plist>

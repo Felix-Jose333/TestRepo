@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string></string>
+			<key>ModifiedRange</key>
+			<string>{1154, 0}</string>
+			<key>OriginalContent</key>
+			<string>&lt;#fun</string>
+			<key>OriginalRange</key>
+			<string>{1154, 5}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>oll</string>
+			<key>ModifiedRange</key>
+			<string>{1155, 3}</string>
+			<key>OriginalContent</key>
+			<string>Name#&gt;</string>
+			<key>OriginalRange</key>
+			<string>{1160, 6}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>    collectGem()
+</string>
+			<key>ModifiedRange</key>
+			<string>{1238, 17}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1246, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>moveForward()
+coll()
+moveForward()
+toggleSwitch()
+moveForward()
+turnLeft()
+moveForward()
+coll()
+moveForward()
+toggleSwitch()
+moveForward()
+moveForward()
+turnLeft()
+moveForward()
+coll()
+moveForward()
+toggleSwitch()
+moveForward()
+turnLeft()
+moveForward()
+coll()
+moveForward()
+toggleSwitch()
+</string>
+			<key>ModifiedRange</key>
+			<string>{1309, 289}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1300, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Document2.playgroundchapter/Pages/Challenge1.playgroundpage/main.swift</string>
+</dict>
+</plist>
