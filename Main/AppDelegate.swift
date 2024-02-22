@@ -20,14 +20,25 @@ var window: UIWindow?
         window?.makeKeyAndVisible()
         //window?.backgroundColor = .systemMint
         print("didFinishLaunchingWithOptions")
-        
-
         return true
-        
         
     }
 
-
+    func applicationWillResignActive(_ application: UIApplication) {
+        print("applicationWillResignActive")
+    }
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        print("applicationWillEnterForeground")
+    }
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        print("applicationDidBecomeActive")
+    }
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        print("applicationDidEnterBackground")
+    }
+    func applicationWillTerminate(_ application: UIApplication) {
+        print("applicationWillTerminate")
+    }
 
 }
 

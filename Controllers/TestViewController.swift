@@ -17,7 +17,8 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
         scrollView.frame = view.bounds
-        scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        //scrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        scrollView.contentSize = CGSize(width: view.bounds.width, height: 1000)
         view.addSubview(scrollView)
 
         
@@ -42,19 +43,9 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         myLabel.backgroundColor = UIColor.lightGray
         myLabel.textAlignment = .center
         myLabel.adjustsFontSizeToFitWidth = true
-        myLabel.minimumScaleFactor = 0.2  // You can adjust this value as needed
+        myLabel.minimumScaleFactor = 0.2
 
-        view.addSubview(myLabel)
-
-//        NSLayoutConstraint.activate([
-//        Label.topAnchor.constraint(equalTo: view.topAnchor),
-//        Label.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-//        Label.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-//        Label.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-//        ])
-
-        
-        
+                
         let text = UITextField()
         text.frame = CGRect(x: 10, y: 350, width: 370, height: 50)
         text.placeholder = "Enter text"
@@ -109,7 +100,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         Label1.minimumScaleFactor = 0.3
 
        
-       scrollView.addSubview(Label)
+        scrollView.addSubview(Label)
         scrollView.addSubview(text)
         scrollView.addSubview(text1)
         scrollView.addSubview(btn)
@@ -164,12 +155,11 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        // Set content size of scrollView
-        scrollView.contentSize = CGSize(width: view.bounds.width, height: 1000) // Adjust height as needed
-    }
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//
+//
+//    }
 
 }
 
