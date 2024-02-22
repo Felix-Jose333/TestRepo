@@ -8,7 +8,7 @@ import UIKit
 
 class TableViewController: UIViewController, UITableViewDataSource , UITableViewDelegate{
     
-    let fruits = ["Apple", "Banana", "Cherry", "Mango"]
+    let fruits = ["Apple", "Banana", "Cherry", "Fig" , "Mango",]
     let counts = ["4","5","6","7"]
     var activeTextField: UITextField?
     let tableView = UITableView()
@@ -38,13 +38,17 @@ class TableViewController: UIViewController, UITableViewDataSource , UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = fruits[indexPath.row]
         cell.detailTextLabel?.text = counts[indexPath.row]
-
+        cell.backgroundColor = .systemMint
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Helloooooooo")
+        let selectedValue = fruits[indexPath.row]
+        print(indexPath.item.self,selectedValue)
+       // print(indexPath.item.self)
     }
     
 
 }
+

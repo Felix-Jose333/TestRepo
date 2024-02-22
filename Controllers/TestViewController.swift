@@ -25,7 +25,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         Label.frame = CGRect(x: 10, y: 100, width: 370, height: 150)
         Label.text = "Hel loghdfdgdgdgdgregregrghregergergergregregreg hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb fffffffffff"
         Label.font = .italicSystemFont(ofSize: 20)
-        Label.textColor = .red
+        Label.textColor = .white
         Label.isEnabled = true
         Label.backgroundColor = .lightGray
         Label.textAlignment = .left
@@ -36,13 +36,13 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         
         
         
-        let myLabel = UILabel()
-        myLabel.text = "This is a long text that may not fit within the label's bounds."
-        myLabel.frame = CGRect(x: 50, y: 270, width: 200, height: 50)
-        myLabel.backgroundColor = UIColor.lightGray
-        myLabel.textAlignment = .center
-        myLabel.adjustsFontSizeToFitWidth = true
-        myLabel.minimumScaleFactor = 0.2
+//        let myLabel = UILabel()
+//        myLabel.text = "This is a long text that may not fit within the label's bounds."
+//        myLabel.frame = CGRect(x: 50, y: 270, width: 200, height: 50)
+//        myLabel.backgroundColor = UIColor.lightGray
+//        myLabel.textAlignment = .center
+//        myLabel.adjustsFontSizeToFitWidth = true
+//        myLabel.minimumScaleFactor = 0.2
 
                 
         let text = UITextField()
@@ -89,7 +89,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         Label1.frame = CGRect(x: 10, y: 500, width: 370, height: 550)
         Label1.text = "Hel loghdfdgdgdgdgregregrghregergergergregregreg hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb fffffffffffgjhjhhkjhkhk efjwehfjhwf hhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb fffffffffffgjhjhhkjhkhk efjwehfjhwfhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb fffffffffffgjhjhhkjhkhk efjwehfjhwfhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb fffffffffffgjhjhhkjhkhk efjwehfjhwfhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb Hel logh hhh jgj gjhj khkj hjgh gv ghgjh jhhgffgg vghfghhgg hgjhhkjhhb fffffffffffgjhjhhkjhkhk efjwehfjhwf"
         Label1.font = .italicSystemFont(ofSize: 50)
-        Label1.textColor = .red
+        Label1.textColor = .white
         Label1.isEnabled = true
         Label1.backgroundColor = .lightGray
         Label1.textAlignment = .left
@@ -103,7 +103,7 @@ class TestViewController: UIViewController, UITextFieldDelegate {
         scrollView.addSubview(text)
         scrollView.addSubview(text1)
         scrollView.addSubview(btn)
-        scrollView.addSubview(myLabel)
+//        scrollView.addSubview(myLabel)
         scrollView.addSubview(Label1)
 
 
