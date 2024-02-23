@@ -50,6 +50,7 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = fruits[indexPath.row]
+        
         cell.detailTextLabel?.text = counts[indexPath.row]
         cell.backgroundColor = .systemMint
         cell.tintColor = .blue
@@ -105,8 +106,30 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             let a = UIViewController()
             a.view.backgroundColor = .white
             let apple = UIImageView()
+            let appleCount = UILabel()
+            appleCount.text = "5"
             apple.translatesAutoresizingMaskIntoConstraints = false
             apple.image = UIImage(named: "Cherry")
+            a.view.addSubview(apple)
+            a.view.addSubview(appleCount)
+            
+            NSLayoutConstraint.activate([
+                apple.centerXAnchor.constraint(equalTo: a.view.centerXAnchor),
+                apple.centerYAnchor.constraint(equalTo: a.view.centerYAnchor),
+                apple.widthAnchor.constraint(equalToConstant: 300),
+                apple.heightAnchor.constraint(equalToConstant: 300)
+            ])
+            
+            navigationController?.pushViewController(a, animated: true)
+            
+        }
+        else if fruits[indexPath.row] == "Fig" {
+            
+            let a = UIViewController()
+            a.view.backgroundColor = .white
+            let apple = UIImageView()
+            apple.translatesAutoresizingMaskIntoConstraints = false
+            apple.image = UIImage(named: "Fig")
             a.view.addSubview(apple)
             
             NSLayoutConstraint.activate([
@@ -118,7 +141,25 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             navigationController?.pushViewController(a, animated: true)
             
+        }
+        
+        else if fruits[indexPath.row] == "Mango" {
             
+            let a = UIViewController()
+            a.view.backgroundColor = .white
+            let apple = UIImageView()
+            apple.translatesAutoresizingMaskIntoConstraints = false
+            apple.image = UIImage(named: "Mango")
+            a.view.addSubview(apple)
+            
+            NSLayoutConstraint.activate([
+                apple.centerXAnchor.constraint(equalTo: a.view.centerXAnchor),
+                apple.centerYAnchor.constraint(equalTo: a.view.centerYAnchor),
+                apple.widthAnchor.constraint(equalToConstant: 300),
+                apple.heightAnchor.constraint(equalToConstant: 300)
+            ])
+            
+            navigationController?.pushViewController(a, animated: true)
             
         }
     }

@@ -43,9 +43,10 @@ class ImageViewController: UIViewController, UITableViewDataSource, UITableViewD
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let fruit = fruits[indexPath.row]
         let fruitImage = fruitImages[indexPath.row]
-        let count = Counts[indexPath.row]
+        var count = Counts[indexPath.row]
         cell.textLabel?.text = "FruiteName : \(fruit)"
         cell.imageView?.image = fruitImage
+       // cell.textLabel?.text = count
         
         return cell
     }
