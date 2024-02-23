@@ -31,40 +31,52 @@ class ScrollViewController: UIViewController {
         scrollView.frame = view.bounds
         scrollView.contentSize = CGSize(width: view.bounds.width, height: 800)
         
+        
         btn1.setTitle("Click to navigate", for: .normal)
         btn1.backgroundColor = .blue
-        btn1.frame = CGRect(x: 0, y: 0, width: 300, height: 50)
+        btn1.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
         btn1.center = CGPoint(x: view.center.x, y: 240)
+        btn1.layer.cornerRadius = 15
         btn1.addTarget(self, action: #selector(didTapButton1) , for: .touchUpInside)
 
+        
         btn2.setTitle("Go to TableView", for: .normal)
         btn2.backgroundColor = .blue
-        btn2.frame = CGRect(x: 0, y: 0, width: 300, height: 50)
+        btn2.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
         btn2.center = CGPoint(x: view.center.x, y: 340)
+        btn2.layer.cornerRadius = 15
         btn2.addTarget(self, action: #selector(didTapButton) , for: .touchUpInside)
 
+        
         btn3.setTitle("Go to TableView", for: .normal)
         btn3.backgroundColor = .blue
-        btn3.frame = CGRect(x: 0, y: 0, width: 300, height: 50)
+        btn3.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
         btn3.center = CGPoint(x: view.center.x, y: 440)
+        btn3.layer.cornerRadius = 15
         btn3.addTarget(self, action: #selector(didTapButton) , for: .touchUpInside)
 
+        
         btn4.setTitle("Go to TableView", for: .normal)
         btn4.backgroundColor = .blue
-        btn4.frame = CGRect(x: 0, y: 0, width: 300, height: 50)
+        btn4.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
         btn4.center = CGPoint(x: view.center.x, y: 540)
+        btn4.layer.cornerRadius = 15
         btn4.addTarget(self, action: #selector(didTapButton) , for: .touchUpInside)
 
+        
         btn5.setTitle("Go to TableView", for: .normal)
         btn5.backgroundColor = .blue
-        btn5.frame = CGRect(x: 0, y: 0, width: 300, height: 50)
+        btn5.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
         btn5.center = CGPoint(x: view.center.x, y: 640)
+        btn5.layer.cornerRadius = 15
         btn5.addTarget(self, action: #selector(didTapButton) , for: .touchUpInside)
 
+        
         btn6.setTitle("Go to TableView", for: .normal)
         btn6.backgroundColor = .blue
-        btn6.frame = CGRect(x: 0, y: 0, width: 300, height: 50)
+        btn6.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
         btn6.center = CGPoint(x: view.center.x, y: 740)
+        btn6.layer.cornerRadius = 15
         btn6.addTarget(self, action: #selector(didTapButton) , for: .touchUpInside)
 
        
@@ -89,7 +101,7 @@ class ScrollViewController: UIViewController {
     }
     @objc func didTapButton1(){
         let vc = ImageViewController()
-        vc.view.backgroundColor = .white
+        vc.view.backgroundColor = .systemMint
         navigationController?.pushViewController(vc, animated: true)
         navigationController?.view.tintColor = .black
 

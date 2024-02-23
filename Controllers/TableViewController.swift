@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let fruits = ["Apple", "Banana", "Cherry", "Fig", "Mango"]
+    let Thing = ["Fruits", "Vegtables", "Cherry", "Fig", "Mango"]
     let counts = ["4", "5", "6", "7"]
     var activeTextField: UITextField?
     let tableView = UITableView()
@@ -24,143 +24,74 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         tableView.delegate = self
         tableView.rowHeight = 70
         
-        
-        
-        NSLayoutConstraint.activate([
-                    tableView.topAnchor.constraint(equalTo: view.topAnchor),
-                    tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                    tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                    tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-                ])
-        
+        self.view.backgroundColor = .black
+  
     }
     
 
-    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 5
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fruits.count
-        
+        return Thing.count
     }
-    
-    
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10.0
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = fruits[indexPath.row]
-        
+        cell.textLabel?.text = Thing[indexPath.row]
         cell.detailTextLabel?.text = counts[indexPath.row]
         cell.backgroundColor = .systemMint
         cell.tintColor = .blue
         return cell
     }
-    
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Helloooooooo")
-        
-        
-        let selectedValue = fruits[indexPath.row]
+                
+        let selectedValue = Thing[indexPath.row]
         print(indexPath.item.self,selectedValue)
         
-        if fruits[indexPath.row] == "Apple" {
-            let a = UIViewController()
+        if Thing[indexPath.row] == "Fruits" {
+            let a = FruiteViewController()
             a.view.backgroundColor = .white
-            let apple = UIImageView()
-            apple.translatesAutoresizingMaskIntoConstraints = false
-            apple.image = UIImage(named: "Apple")
-            a.view.addSubview(apple)
-            
-            NSLayoutConstraint.activate([
-                apple.centerXAnchor.constraint(equalTo: a.view.centerXAnchor),
-                apple.centerYAnchor.constraint(equalTo: a.view.centerYAnchor),
-                apple.widthAnchor.constraint(equalToConstant: 300),
-                apple.heightAnchor.constraint(equalToConstant: 300)
-            ])
-            
+
             navigationController?.pushViewController(a, animated: true)
             
-        } else if fruits[indexPath.row] == "Banana" {
-            let a = UIViewController()
+        } else if Thing[indexPath.row] == "Vegtables" {
+            let a = VegViewController()
             a.view.backgroundColor = .white
-            let apple = UIImageView()
-            apple.translatesAutoresizingMaskIntoConstraints = false
-            apple.image = UIImage(named: "Banana")
-            a.view.addSubview(apple)
-            
-            NSLayoutConstraint.activate([
-                apple.centerXAnchor.constraint(equalTo: a.view.centerXAnchor),
-                apple.centerYAnchor.constraint(equalTo: a.view.centerYAnchor),
-                apple.widthAnchor.constraint(equalToConstant: 300),
-                apple.heightAnchor.constraint(equalToConstant: 300)
-            ])
-            
+
             navigationController?.pushViewController(a, animated: true)
-            
-            
         }
-        else if fruits[indexPath.row] == "Cherry" {
-            
+        else{
             let a = UIViewController()
             a.view.backgroundColor = .white
-            let apple = UIImageView()
-            let appleCount = UILabel()
-            appleCount.text = "5"
-            apple.translatesAutoresizingMaskIntoConstraints = false
-            apple.image = UIImage(named: "Cherry")
-            a.view.addSubview(apple)
-            a.view.addSubview(appleCount)
-            
-            NSLayoutConstraint.activate([
-                apple.centerXAnchor.constraint(equalTo: a.view.centerXAnchor),
-                apple.centerYAnchor.constraint(equalTo: a.view.centerYAnchor),
-                apple.widthAnchor.constraint(equalToConstant: 300),
-                apple.heightAnchor.constraint(equalToConstant: 300)
-            ])
-            
+
             navigationController?.pushViewController(a, animated: true)
-            
         }
-        else if fruits[indexPath.row] == "Fig" {
-            
-            let a = UIViewController()
-            a.view.backgroundColor = .white
-            let apple = UIImageView()
-            apple.translatesAutoresizingMaskIntoConstraints = false
-            apple.image = UIImage(named: "Fig")
-            a.view.addSubview(apple)
-            
-            NSLayoutConstraint.activate([
-                apple.centerXAnchor.constraint(equalTo: a.view.centerXAnchor),
-                apple.centerYAnchor.constraint(equalTo: a.view.centerYAnchor),
-                apple.widthAnchor.constraint(equalToConstant: 300),
-                apple.heightAnchor.constraint(equalToConstant: 300)
-            ])
-            
-            navigationController?.pushViewController(a, animated: true)
-            
-        }
+       
         
-        else if fruits[indexPath.row] == "Mango" {
-            
-            let a = UIViewController()
-            a.view.backgroundColor = .white
-            let apple = UIImageView()
-            apple.translatesAutoresizingMaskIntoConstraints = false
-            apple.image = UIImage(named: "Mango")
-            a.view.addSubview(apple)
-            
-            NSLayoutConstraint.activate([
-                apple.centerXAnchor.constraint(equalTo: a.view.centerXAnchor),
-                apple.centerYAnchor.constraint(equalTo: a.view.centerYAnchor),
-                apple.widthAnchor.constraint(equalToConstant: 300),
-                apple.heightAnchor.constraint(equalToConstant: 300)
-            ])
-            
-            navigationController?.pushViewController(a, animated: true)
-            
-        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
