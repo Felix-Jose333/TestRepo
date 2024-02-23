@@ -83,6 +83,8 @@ class ScrollViewController: UIViewController {
         let vc = TableViewController()
         vc.view.backgroundColor = .white
         navigationController?.pushViewController(vc, animated: true)
+        navigationController?.view.tintColor = .black
+
 
     }
     
