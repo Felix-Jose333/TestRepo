@@ -31,11 +31,11 @@ class ScrollViewController: UIViewController {
         scrollView.frame = view.bounds
         scrollView.contentSize = CGSize(width: view.bounds.width, height: 800)
         
-        btn1.setTitle("Go to TableView", for: .normal)
+        btn1.setTitle("Click to navigate", for: .normal)
         btn1.backgroundColor = .blue
         btn1.frame = CGRect(x: 0, y: 0, width: 300, height: 50)
         btn1.center = CGPoint(x: view.center.x, y: 240)
-        btn1.addTarget(self, action: #selector(didTapButton) , for: .touchUpInside)
+        btn1.addTarget(self, action: #selector(didTapButton1) , for: .touchUpInside)
 
         btn2.setTitle("Go to TableView", for: .normal)
         btn2.backgroundColor = .blue
@@ -87,7 +87,14 @@ class ScrollViewController: UIViewController {
 
 
     }
-    
+    @objc func didTapButton1(){
+        let vc = ImageViewController()
+        vc.view.backgroundColor = .white
+        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.view.tintColor = .black
+
+
+    }
 
     @objc private func dismissSelf(){
         dismiss(animated: true,completion: nil)
