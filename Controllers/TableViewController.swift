@@ -1,4 +1,4 @@
-////
+//
 //  TableViewController.swift
 //  Test
 //
@@ -9,7 +9,7 @@ import UIKit
 
 class TableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    let Thing = ["Fruits", "Vegtables", "Cherry", "Fig", "Mango"]
+    let Thing = ["Fruits", "Vegtables", "Animals", "Birds", "Mango"]
     let counts = ["4", "5", "6", "7"]
     var activeTextField: UITextField?
     let tableView = UITableView()
@@ -61,16 +61,27 @@ class TableViewController: UIViewController, UITableViewDataSource, UITableViewD
         print(indexPath.item.self,selectedValue)
         
         if Thing[indexPath.row] == "Fruits" {
-            let a = FruiteViewController()
-            a.view.backgroundColor = .white
+            let fruites = FruiteViewController()
+            fruites.view.backgroundColor = .white
 
-            navigationController?.pushViewController(a, animated: true)
+            navigationController?.pushViewController(fruites, animated: true)
             
         } else if Thing[indexPath.row] == "Vegtables" {
-            let a = VegViewController()
-            a.view.backgroundColor = .white
+            let vegtables = VegViewController()
+            vegtables.view.backgroundColor = .white
 
-            navigationController?.pushViewController(a, animated: true)
+            navigationController?.pushViewController(vegtables, animated: true)
+        
+        } else if Thing[indexPath.row] == "Animals" {
+            let vegtables = AnimalViewController()
+            vegtables.view.backgroundColor = .white
+
+            navigationController?.pushViewController(vegtables, animated: true)
+        } else if Thing[indexPath.row] == "Birds" {
+            let vegtables = BirdsViewController()
+            vegtables.view.backgroundColor = .white
+
+            navigationController?.pushViewController(vegtables, animated: true)
         }
         else{
             let a = UIViewController()

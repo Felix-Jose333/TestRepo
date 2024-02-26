@@ -4,19 +4,19 @@
 //  Created by Taxida on 12/02/24.
 //
 //
-
+//
 import UIKit
 
 class ScrollViewController: UIViewController {
 
-     let scrollView = UIScrollView()
-  
-     let btn1 = UIButton()
-     let btn2 = UIButton()
-     let btn3 = UIButton()
-     let btn4 = UIButton()
-     let btn5 = UIButton()
-     let btn6 = UIButton()
+    let scrollView = UIScrollView()
+
+    let btn1 = UIButton()
+    let btn2 = UIButton()
+    let btn3 = UIButton()
+    let btn4 = UIButton()
+    let btn5 = UIButton()
+    let btn6 = UIButton()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,88 +28,52 @@ class ScrollViewController: UIViewController {
         navigationItem.rightBarButtonItem?.tintColor = .black
         
         view.backgroundColor = .white
-        scrollView.frame = view.bounds
-        scrollView.contentSize = CGSize(width: view.bounds.width, height: 800)
         
-        
-        btn1.setTitle("Click to navigate", for: .normal)
-        btn1.backgroundColor = .blue
-        btn1.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
-        btn1.center = CGPoint(x: view.center.x, y: 240)
-        btn1.layer.cornerRadius = 15
-        btn1.addTarget(self, action: #selector(didTapButton1) , for: .touchUpInside)
-
-        
-        btn2.setTitle("Go to TableView", for: .normal)
-        btn2.backgroundColor = .blue
-        btn2.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
-        btn2.center = CGPoint(x: view.center.x, y: 340)
-        btn2.layer.cornerRadius = 15
-        btn2.addTarget(self, action: #selector(didTapButton) , for: .touchUpInside)
-
-        
-        btn3.setTitle("Go to TableView", for: .normal)
-        btn3.backgroundColor = .blue
-        btn3.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
-        btn3.center = CGPoint(x: view.center.x, y: 440)
-        btn3.layer.cornerRadius = 15
-        btn3.addTarget(self, action: #selector(didTapButton) , for: .touchUpInside)
-
-        
-        btn4.setTitle("Go to TableView", for: .normal)
-        btn4.backgroundColor = .blue
-        btn4.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
-        btn4.center = CGPoint(x: view.center.x, y: 540)
-        btn4.layer.cornerRadius = 15
-        btn4.addTarget(self, action: #selector(didTapButton) , for: .touchUpInside)
-
-        
-        btn5.setTitle("Go to TableView", for: .normal)
-        btn5.backgroundColor = .blue
-        btn5.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
-        btn5.center = CGPoint(x: view.center.x, y: 640)
-        btn5.layer.cornerRadius = 15
-        btn5.addTarget(self, action: #selector(didTapButton) , for: .touchUpInside)
-
-        
-        btn6.setTitle("Go to TableView", for: .normal)
-        btn6.backgroundColor = .blue
-        btn6.frame = CGRect(x: 0, y: 0, width: 300, height: 55)
-        btn6.center = CGPoint(x: view.center.x, y: 740)
-        btn6.layer.cornerRadius = 15
-        btn6.addTarget(self, action: #selector(didTapButton) , for: .touchUpInside)
-
-       
-        scrollView.addSubview(btn1)
-        scrollView.addSubview(btn2)
-        scrollView.addSubview(btn3)
-        scrollView.addSubview(btn4)
-        scrollView.addSubview(btn5)
-        scrollView.addSubview(btn6)
-
-
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(scrollView)
-   }
+
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+
+        scrollView.contentSize = CGSize(width: view.bounds.width, height: 800)
+
+        setupButton(btn1, title: "Click to navigate", centerYConstant: 240)
+        setupButton(btn2, title: "Go to TableView", centerYConstant: 340)
+        setupButton(btn3, title: "Go to TableView", centerYConstant: 440)
+        setupButton(btn4, title: "Go to TableView", centerYConstant: 540)
+        setupButton(btn5, title: "Go to TableView", centerYConstant: 640)
+        setupButton(btn6, title: "Go to TableView", centerYConstant: 740)
+    }
     
-    @objc func didTapButton(){
+    private func setupButton(_ button: UIButton, title: String, centerYConstant: CGFloat) {
+        button.setTitle(title, for: .normal)
+        button.backgroundColor = .blue
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+        
+        scrollView.addSubview(button)
+        
+        NSLayoutConstraint.activate([
+            button.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            button.centerYAnchor.constraint(equalTo: scrollView.topAnchor, constant: centerYConstant),
+            button.widthAnchor.constraint(equalToConstant: 300),
+            button.heightAnchor.constraint(equalToConstant: 55)
+        ])
+    }
+    
+    @objc private func didTapButton() {
         let vc = TableViewController()
         vc.view.backgroundColor = .white
         navigationController?.pushViewController(vc, animated: true)
         navigationController?.view.tintColor = .black
-
-
     }
-    @objc func didTapButton1(){
-        let vc = ImageViewController()
-        vc.view.backgroundColor = .systemMint
-        navigationController?.pushViewController(vc, animated: true)
-        navigationController?.view.tintColor = .black
-
-
-    }
-
-    @objc private func dismissSelf(){
-        dismiss(animated: true,completion: nil)
-        
+ 
+    @objc private func dismissSelf() {
+        dismiss(animated: true, completion: nil)
     }
 }
