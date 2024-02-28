@@ -12,7 +12,15 @@ import UIKit
 class VegViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let fruits = ["Brinjal", "Bitterguard", "Carrot", "tomatto", "Beetroot"]
-    let fruitImages = [UIImage(named: "Brinjal"), UIImage(named: "Bitterguard"), UIImage(named: "Carrot"), UIImage(named: "tomatto"), UIImage(named: "Beetroot")]
+    let fruitImages = [
+        
+        UIImage(named: "Brinjal")?.resized1(to: CGSize(width: 50, height: 50)),
+        UIImage(named: "Bitterguard")?.resized1(to: CGSize(width: 50, height: 50)),
+        UIImage(named: "Carrot")?.resized1(to: CGSize(width: 50, height: 50)),
+        UIImage(named: "tomatto")?.resized1(to: CGSize(width: 50, height: 50)),
+        UIImage(named: "Beetroot")?.resized1(to: CGSize(width: 50, height: 50))
+    ]
+    
     let Counts = ["4","5","24","12","13"]
     let tableView = UITableView()
     
@@ -29,8 +37,8 @@ class VegViewController: UIViewController, UITableViewDataSource, UITableViewDel
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])    }
     
@@ -184,7 +192,17 @@ class VegViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
 }
 
+extension UIImage {
+    func resized1(to size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        defer { UIGraphicsEndImageContext() }
+        self.draw(in: CGRect(origin: .zero, size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}
 
 
 
 
+
+                                                              

@@ -18,7 +18,6 @@ var window: UIWindow?
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = TestViewController()
         window?.makeKeyAndVisible()
-        //window?.backgroundColor = .systemMint
         print("didFinishLaunchingWithOptions")
         return true
         

@@ -11,7 +11,14 @@ import UIKit
 class FruiteViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let fruits = ["Apple", "Banana", "Cherry", "Fig", "Mango"]
-    let fruitImages = [UIImage(named: "Apple"), UIImage(named: "Banana"), UIImage(named: "Cherry"), UIImage(named: "Fig"), UIImage(named: "Mango")]
+    let fruitImages: [UIImage?] = [
+        UIImage(named: "Apple")?.resized(to: CGSize(width: 50, height: 50)),
+        UIImage(named: "Banana")?.resized(to: CGSize(width: 50, height: 50)),
+        UIImage(named: "Cherry")?.resized(to: CGSize(width: 50, height: 50)),
+        UIImage(named: "Fig")?.resized(to: CGSize(width: 50, height: 50)),
+        UIImage(named: "Mango")?.resized(to: CGSize(width: 50, height: 50))
+    ]
+    
     let Counts = ["4","5","24","12","13"]
     let tableView = UITableView()
     
@@ -25,15 +32,15 @@ class FruiteViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
-
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-        ])    }
-    
-    
+        ])
+        
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
@@ -74,10 +81,11 @@ class FruiteViewController: UIViewController, UITableViewDataSource, UITableView
             let a = UIViewController()
             a.view.backgroundColor = .white
             let apple = UIImageView()
+            
             apple.translatesAutoresizingMaskIntoConstraints = false
             apple.image = UIImage(named: "Apple")
             a.view.addSubview(apple)
-//            
+            //
             NSLayoutConstraint.activate([
                 apple.centerXAnchor.constraint(equalTo: a.view.centerXAnchor),
                 apple.centerYAnchor.constraint(equalTo: a.view.centerYAnchor),
@@ -110,7 +118,7 @@ class FruiteViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         else if fruits[indexPath.row] == "Cherry" {
-
+            
             let a = UIViewController()
             a.view.backgroundColor = .white
             let cherry = UIImageView()
@@ -141,7 +149,7 @@ class FruiteViewController: UIViewController, UITableViewDataSource, UITableView
             fig.translatesAutoresizingMaskIntoConstraints = false
             fig.image = UIImage(named: "Fig")
             a.view.addSubview(fig)
-//
+            //
             NSLayoutConstraint.activate([
                 fig.centerXAnchor.constraint(equalTo: a.view.centerXAnchor),
                 fig.centerYAnchor.constraint(equalTo: a.view.centerYAnchor),
@@ -153,8 +161,6 @@ class FruiteViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
         
-        
-        
         else if fruits[indexPath.row] == "Mango" {
             
             let a = UIViewController()
@@ -163,7 +169,7 @@ class FruiteViewController: UIViewController, UITableViewDataSource, UITableView
             mango.translatesAutoresizingMaskIntoConstraints = false
             mango.image = UIImage(named: "Mango")
             a.view.addSubview(mango)
-//
+            //
             NSLayoutConstraint.activate([
                 mango.centerXAnchor.constraint(equalTo: a.view.centerXAnchor),
                 mango.centerYAnchor.constraint(equalTo: a.view.centerYAnchor),
@@ -175,8 +181,13 @@ class FruiteViewController: UIViewController, UITableViewDataSource, UITableView
         }
         
     }
-    
-    
-    
 }
 
+extension UIImage {
+    func resized(to size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        defer { UIGraphicsEndImageContext() }
+        self.draw(in: CGRect(origin: .zero, size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}

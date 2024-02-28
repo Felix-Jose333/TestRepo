@@ -11,7 +11,11 @@ import UIKit
 class AnimalViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let Animal = ["tiger", "Zeebra", "Giraffe", "Elaphant", "Squirrel"]
-    let AnimalImages = [UIImage(named: "tiger"),UIImage(named: "Zeebra"), UIImage(named: "Giraffe"),  UIImage(named: "Elaphant"), UIImage(named: "Squirrel")]
+    let AnimalImages = [UIImage(named: "tiger")?.resized2(to: CGSize(width: 50, height: 50)),
+                        UIImage(named: "Zeebra")?.resized2(to: CGSize(width: 50, height: 50)),
+                        UIImage(named: "Giraffe")?.resized2(to: CGSize(width: 50, height: 50)),
+                        UIImage(named: "Elaphant")?.resized2(to: CGSize(width: 50, height: 50)),
+                        UIImage(named: "Squirrel")?.resized2(to: CGSize(width: 50, height: 50))]
     let Counts = ["4","5","24","12","13"]
     let tableView = UITableView()
     
@@ -28,8 +32,8 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])    }
     
@@ -184,5 +188,12 @@ class AnimalViewController: UIViewController, UITableViewDataSource, UITableView
 
 
 
-
+extension UIImage {
+    func resized2(to size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        defer { UIGraphicsEndImageContext() }
+        self.draw(in: CGRect(origin: .zero, size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}
 

@@ -11,7 +11,11 @@ import UIKit
 class BirdsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let Animal = ["Bird1", "Bird2", "Bird3", "Bird4", "Bird5"]
-    let AnimalImages = [UIImage(named: "Bird1"),UIImage(named: "Bird2"), UIImage(named: "Bird3"),  UIImage(named: "Bird4"), UIImage(named: "Bird5")]
+    let AnimalImages = [UIImage(named: "Bird1")?.resized3(to: CGSize(width: 50, height: 50)),
+                        UIImage(named: "Bird2")?.resized3(to: CGSize(width: 50, height: 50)),
+                        UIImage(named: "Bird3")?.resized3(to: CGSize(width: 50, height: 50)),
+                        UIImage(named: "Bird4")?.resized3(to: CGSize(width: 50, height: 50)),
+                        UIImage(named: "Bird5")?.resized3(to: CGSize(width: 50, height: 50))]
     let Counts = ["4","5","24","12","13"]
     let tableView = UITableView()
     
@@ -28,8 +32,8 @@ class BirdsViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
@@ -80,7 +84,7 @@ class BirdsViewController: UIViewController, UITableViewDataSource, UITableViewD
             apple.translatesAutoresizingMaskIntoConstraints = false
             apple.image = UIImage(named: "Bird1")
             a.view.addSubview(apple)
-//
+
             NSLayoutConstraint.activate([
                 apple.centerXAnchor.constraint(equalTo: a.view.centerXAnchor),
                 apple.centerYAnchor.constraint(equalTo: a.view.centerYAnchor),
@@ -180,7 +184,15 @@ class BirdsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     
-    
 }
 
+
+extension UIImage {
+    func resized3(to size: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(size, false, UIScreen.main.scale)
+        defer { UIGraphicsEndImageContext() }
+        self.draw(in: CGRect(origin: .zero, size: size))
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}
 

@@ -1,5 +1,5 @@
 //
-//  Scroll.swift
+//  ScrollViewController.swift
 //  Test
 //  Created by Taxida on 12/02/24.
 //
@@ -26,20 +26,25 @@ class ScrollViewController: UIViewController {
                                                             target: self,
                                                             action: #selector(dismissSelf))
         navigationItem.rightBarButtonItem?.tintColor = .black
-        
         view.backgroundColor = .white
-        
+        scrollView.frame = view.bounds
+        scrollView.contentSize = CGSize(width: view.bounds.width, height: 800)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        //scrollView.isScrollEnabled = false 
         view.addSubview(scrollView)
 
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            scrollView.topAnchor.constraint(equalTo:
+                                                view.safeAreaLayoutGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo:
+                                                    view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo:
+                                                    view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo:
+                                                view.safeAreaLayoutGuide.bottomAnchor)
         ])
 
-        scrollView.contentSize = CGSize(width: view.bounds.width, height: 800)
+        //scrollView.contentSize = CGSize(width: view.bounds.width, height: 800)
 
         setupButton(btn1, title: "Click to navigate", centerYConstant: 240)
         setupButton(btn2, title: "Go to TableView", centerYConstant: 340)
@@ -61,7 +66,7 @@ class ScrollViewController: UIViewController {
         NSLayoutConstraint.activate([
             button.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             button.centerYAnchor.constraint(equalTo: scrollView.topAnchor, constant: centerYConstant),
-            button.widthAnchor.constraint(equalToConstant: 300),
+            button.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, constant: -50),
             button.heightAnchor.constraint(equalToConstant: 55)
         ])
     }
